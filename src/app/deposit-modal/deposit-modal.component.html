@@ -1,0 +1,43 @@
+
+<ion-content class="ion-padding" fullscreen="true">
+<h4><b> Filters </b></h4>
+      <ion-buttons slot="end">
+        <ion-button (click)="dismissModal()">Close</ion-button>
+      </ion-buttons>
+      <h3>Select GA</h3>
+      <ion-list><ion-item>
+     
+<ion-select  interface="popover"   
+(change)="update($event)"  placeholder="Select a GA value">
+    <ion-select-option *ngFor="let gavalue of GA" [value]="gavalue">
+        {{gavalue}}
+    </ion-select-option>
+</ion-select>
+</ion-item></ion-list>
+<h3>Operator</h3>
+<ion-list><ion-item>
+
+<ion-select #cricket  interface="popover"  
+ placeholder="equals To">
+<ion-select-option *ngFor="let operatorvalue of Operator" [value]="operatorvalue">
+  {{operatorvalue}}
+</ion-select-option>
+</ion-select>
+</ion-item></ion-list>
+<h3>Select values</h3>
+<ion-list>
+  <ion-item>
+    <ion-select placeholder="Select City"  interface="popover"  [multiple]="true">
+      <ion-select-option *ngFor="let cityname of City" [value]="cityname">
+        {{cityname}}
+      </ion-select-option>
+          </ion-select>
+  </ion-item>
+</ion-list>
+<ion-button id="add" (click)="add()">Add</ion-button>
+
+<p>You selected {{selected}}</p>    
+    <ion-input [formControl]="balanceInput" type="number"></ion-input>
+ 
+  <ion-button    expand="block" (click)="onDeposit()" class="ion-margin-top">Apply Filter</ion-button>
+</ion-content>

@@ -1,0 +1,12 @@
+
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item  button *ngFor="let account of accounts" (click)="openModal(account)">
+      <ion-label>
+        <h2>{{account.GA}}</h2>
+        <p>Balance : {{account.balance|number}}</p>
+       </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
